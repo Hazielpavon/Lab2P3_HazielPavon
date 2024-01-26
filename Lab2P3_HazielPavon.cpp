@@ -38,9 +38,7 @@ void ejercicio1() {
 
 void ejercicio2() {
 	int arreglo[10];
-	int numeromenor = 0;
 	srand((unsigned)time(NULL));
-
 	// llenando el arreglo y realizando lo pedido 
 	for (int i = 0; i < 10; i++)
 	{
@@ -55,26 +53,60 @@ void ejercicio2() {
 		else {
 			cout << arreglo[i] << "] " << endl;
 		}
-
 	}
-
-	for (int i = 0; i < 10; i++)
-	{
-		if (arreglo[i] > 0) {
-			int ref = arreglo[i];
-			if (ref > 0 && ref < arreglo[i + 1] && ref < arreglo [i-1]) {
-				numeromenor = numeromenor++;
-			}
-			
+	// aca solo se hace una comparacion
+	int numeromenor = 1;
+	bool nofaltaalguno;
+	for (int i = 0; i < 10; i++) {
+		if (arreglo[i] == numeromenor) {
+			numeromenor++;
 		}
-
 	}
+	cout << "No hay ningun numero entero positivo faltante en el arreglo." << endl;
 
-
-
-	cout << "Entero minimo faltante es: " << numeromenor << endl;
+}
+// el swap que agarra el valor +1 de a y -1 de b
+void swap(int& a, int& b) {
+	int temp = a;
+	a = b;
+	b = temp;
+}
+// metodo recursivo que le quita y suma a los valores a y b
+void recursivo(int arr[], int a, int b, int cont) {
+	if (cont == 0) {
+		
+	}
+	else {
+		swap(arr[a], arr[b]);
+		recursivo(arr, a + 1, b - 1, cont - 1);
+	}
 }
 
+void ejercicio3() {
+	int arreglo[7] = { 1, 2, 3, 4, 5, 6, 7 };
+
+	cout << "Arreglo inicial" << endl;
+
+	for (int i = 0; i < 7; i++) {
+		if (i == 6) {
+			cout << arreglo[i] << endl;
+		}
+		else {
+			cout << arreglo[i] << ",";
+		}
+	}
+	cout << "Arreglo Modificado" << endl;
+	recursivo(arreglo, 0, 6, 3);
+	for (int i = 0; i < 7; i++) {
+		if (i == 6) {
+			cout << arreglo[i] << endl;
+		}
+		else {
+			cout << arreglo[i] << ",";
+		}
+	}
+	cout << "" << endl;
+}
 int main()
 {
 	bool seguir = true;
@@ -98,6 +130,7 @@ int main()
 			break;
 
 		case 3:
+			ejercicio3();
 			break;
 
 		case 4:
@@ -110,10 +143,5 @@ int main()
 			break;
 		}
 	}
-
-
-
-
-
 }
 
