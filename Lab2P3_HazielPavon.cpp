@@ -72,6 +72,7 @@ void swap(int& a, int& b) {
 	b = temp;
 }
 // metodo recursivo que le quita y suma a los valores a y b
+// el contador esta en 3 ya que solo 3 veces necesita iteracion 
 void recursivo(int arr[], int a, int b, int cont) {
 	if (cont == 0) {
 		
@@ -135,7 +136,7 @@ int main()
 
 		case 4:
 			seguir = false;
-			cout << "Saliendo...";
+			cout << "Saliendo";
 			break;
 
 		default:
