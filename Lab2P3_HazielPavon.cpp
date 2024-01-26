@@ -1,20 +1,69 @@
-// Lab2P3_HazielPavon.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
 #include <iostream>
+#include<cstdlib>
+using namespace std;
+
+
+void ejercicio1() {
+	int arreglo[10]; 
+	int prom = 0; 
+	srand((unsigned)time(NULL));
+	for (int i = 0; i < 10; i++)
+	{
+		int random = 100 + (rand() % 401);
+		arreglo[i] = random; 
+		prom += arreglo[i];
+		if (i == 0) {
+			cout << "[" << arreglo[i] << ", ";
+		}else if (i > 0 && i < 9) {
+			cout << arreglo[i] << ", ";
+		}else {
+			cout  << arreglo[i] << "] " << endl;
+		}
+		
+	}
+	prom = prom / 10; 
+	cout << prom << endl; 
+
+}
 
 int main()
 {
-    std::cout << "Hello World!\n";
+	bool seguir = true; 
+	while (seguir) {
+
+		cout << "ingrese una opcion" << endl;
+		cout << "1. Ejercicio Practico 1 Desviacion Estandar" << endl;
+		cout << "2. Ejercicio practico 2 Entero positivo minimo faltante" << endl;
+		cout << "3. Ejercicio practico 3 Easy Swap" << endl;
+		cout << "4. Salir" << endl;
+		int op;
+		cin >> op;
+
+		switch (op) {
+		case 1:
+			ejercicio1(); 
+			break;
+
+		case 2:
+			break;
+
+		case 3:
+			break;
+
+		case 4:
+			seguir = false; 
+			cout << "Saliendo..."; 
+			break;
+
+		default:
+			cout << "Ingrese una opcion correcta" << endl;
+			break;
+		}
+	}
+
+
+
+
+
 }
 
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
